@@ -5,9 +5,10 @@ import 'package:clean_todo/core/theme/bloc/theme_bloc.dart';
 import 'package:clean_todo/core/theme/bloc/theme_state.dart';
 import 'package:clean_todo/features/todo/presentation/bloc/todo_bloc.dart';
 import 'package:clean_todo/features/todo/presentation/bloc/todo_events.dart';
-import 'package:clean_todo/features/todo/presentation/screens/todo_main_list_screen.dart';
+import 'package:clean_todo/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +31,13 @@ class CleanTodo extends StatelessWidget {
           final isDark = state is ThemeChanged ? state.isDark : true;
           return MaterialApp.router(
             title: 'Clean Todo',
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [Locale('en', 'US')],
             debugShowCheckedModeBanner: false,
             theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
             routerConfig: router,

@@ -2,9 +2,11 @@ import 'package:clean_todo/core/theme/theme_extension.dart';
 import 'package:clean_todo/features/todo/domain/entities/todo/todo.dart';
 import 'package:clean_todo/features/todo/presentation/bloc/todo_bloc.dart';
 import 'package:clean_todo/features/todo/presentation/bloc/todo_events.dart';
+import 'package:clean_todo/l10n/app_localizations.dart';
 import 'package:clean_todo/shared/widgets/custom_text_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:uuid/uuid.dart';
 
 class TodoBottomForm extends StatefulWidget {
   final Todo? editingTodo;
@@ -21,6 +23,8 @@ class _TodoBottomFormState extends State<TodoBottomForm> {
   TodoPriority? _todoPriority = TodoPriority.low;
   TodoStatus? _todoStatus;
 
+  final _uuid = const Uuid();
+
   @override
   void initState() {
     super.initState();
@@ -35,7 +39,7 @@ class _TodoBottomFormState extends State<TodoBottomForm> {
   void _onSubmit() {
     if (_formKey.currentState!.validate()) {
       Todo todo = Todo(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        id: _uuid.v4(),
         title: _titleController.text,
         description: _descriptionController.text,
         priority: _todoPriority!,
@@ -76,7 +80,9 @@ class _TodoBottomFormState extends State<TodoBottomForm> {
           _todoStatus = value;
         });
       },
-      decoration: const InputDecoration(labelText: 'Status'),
+      decoration: InputDecoration(
+        labelText: AppLocalizations.of(context)!.statusLabel,
+      ),
     );
   }
 
@@ -108,7 +114,7 @@ class _TodoBottomFormState extends State<TodoBottomForm> {
                   const Icon(Icons.edit),
                   const SizedBox(width: 8.0),
                   Text(
-                    "Create new task",
+                    AppLocalizations.of(context)!.createFormTitle,
                     style: context.textTheme.headlineMedium,
                   ),
                 ],
@@ -117,10 +123,10 @@ class _TodoBottomFormState extends State<TodoBottomForm> {
               const SizedBox(height: 20.00),
               CustomTextInput(
                 controller: _titleController,
-                label: "Title",
+                label: AppLocalizations.of(context)!.titleLabel,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter a title';
+                    return AppLocalizations.of(context)!.titleLabelEmptyError;
                   }
                   return null;
                 },
@@ -128,10 +134,10 @@ class _TodoBottomFormState extends State<TodoBottomForm> {
               const SizedBox(height: 16.00),
               CustomTextInput(
                 controller: _descriptionController,
-                label: "Description",
+                label: AppLocalizations.of(context)!.descriptionLabel,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Please enter description";
+                    return AppLocalizations.of(context)!.descriptionEmptyError;
                   }
                   return null;
                 },
@@ -152,10 +158,12 @@ class _TodoBottomFormState extends State<TodoBottomForm> {
                     _todoPriority = value;
                   });
                 },
-                decoration: const InputDecoration(labelText: 'Priority'),
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.priorityLabel,
+                ),
                 validator: (value) {
                   if (value == null) {
-                    return 'Please select a priority';
+                    return AppLocalizations.of(context)!.priorityEmptyError;
                   }
                   return null;
                 },
@@ -170,7 +178,7 @@ class _TodoBottomFormState extends State<TodoBottomForm> {
                 child: ElevatedButton(
                   onPressed: () => _onSubmit(),
                   child: Text(
-                    'Save',
+                    AppLocalizations.of(context)!.saveButton,
                     style: context.textTheme.labelLarge?.copyWith(
                       color: context.colors.onPrimary,
                       fontWeight: FontWeight.bold,

@@ -13,6 +13,8 @@ Clean Todo is a Flutter project designed for learning and practicing the Clean A
 - **Database Integration**: Local storage with `drift` and `sqlite3_flutter_libs`.
 - **Functional Programming**: Leveraging `fpdart` for functional paradigms.
 - **Custom Themes**: Beautiful UI with `google_fonts`.
+- **Routing**: Navigation powered by `go_router`.
+- **Localization**: Multi-language support with `flutter_localizations`.
 
 ## Libraries Used
 
@@ -31,6 +33,7 @@ Clean Todo is a Flutter project designed for learning and practicing the Clean A
 - [sqlite3_flutter_libs](https://pub.dev/packages/sqlite3_flutter_libs): SQLite support.
 - [path](https://pub.dev/packages/path): Path manipulation.
 - [google_fonts](https://pub.dev/packages/google_fonts): Custom fonts.
+- [uuid](https://pub.dev/packages/uuid): Generate unique identifiers.
 
 ### Dev Dependencies
 

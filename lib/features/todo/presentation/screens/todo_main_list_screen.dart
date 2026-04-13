@@ -6,6 +6,7 @@ import 'package:clean_todo/features/todo/presentation/widgets/togge_theme_button
 import 'package:clean_todo/features/todo/presentation/widgets/custom_search_bar.dart';
 import 'package:clean_todo/features/todo/presentation/widgets/todo_bottom_form.dart';
 import 'package:clean_todo/features/todo/presentation/widgets/todo_item.dart';
+import 'package:clean_todo/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -118,26 +119,28 @@ class TodoMainListScreen extends StatelessWidget {
                         ? _buildEmpty(context)
                         : _buildTodosList(context, todos),
                     error: (message) => _buildError(context, message),
-                    orElse: () => const Text("Welcome to Clean Tasks!"),
+                    orElse: () => Text(
+                      AppLocalizations.of(context)!.toastsWelcomeMessage,
+                    ),
                   );
                 },
                 listener: (context, state) {
                   state.maybeWhen(
                     updated: () => _showSnackBar(
                       context,
-                      "Task has been updated",
+                      AppLocalizations.of(context)!.toastsTaskUpdated,
                       backgroundColor: context.warning,
                       textColor: context.onWarning,
                     ),
                     deleted: () => _showSnackBar(
                       context,
-                      "Task has been deleted",
+                      AppLocalizations.of(context)!.toastsTaskDeleted,
                       backgroundColor: context.colors.error,
                       textColor: context.colors.onError,
                     ),
                     created: () => _showSnackBar(
                       context,
-                      "Task has been created",
+                      AppLocalizations.of(context)!.toastsTaskCreated,
                       backgroundColor: context.success,
                       textColor: context.onSuccess,
                     ),

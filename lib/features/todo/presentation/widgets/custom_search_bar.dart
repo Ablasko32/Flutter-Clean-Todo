@@ -1,5 +1,6 @@
 import 'package:clean_todo/features/todo/presentation/bloc/todo_bloc.dart';
 import 'package:clean_todo/features/todo/presentation/bloc/todo_events.dart';
+import 'package:clean_todo/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +11,7 @@ class CustomSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        hintText: 'Search todos...',
+        hintText: AppLocalizations.of(context)!.searchPlaceholder,
         prefixIcon: Icon(Icons.search),
       ),
       onChanged: (value) {

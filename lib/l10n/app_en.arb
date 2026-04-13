@@ -1,0 +1,62 @@
+{
+  "splashScreenMessage": "Welcome to Clean Tasks",
+  "@splashScreenMessage": {
+    "description": "Greeting when entering the app"
+  },
+  "searchPlaceholder": "Search tasks...",
+  "@searchPlaceholder": {
+    "description": "Placeholder in main search bar"
+  },
+  "createFormTitle": "Create new Task ",
+  "@createFormTitle": {
+    "description": "Title of bottom form"
+  },
+  "statusLabel": "Status",
+  "@statusLabel": {
+    "description": "Status label for dropdown select in bottom form "
+  },
+  "titleLabel": "Title",
+  "@titleLabel": {
+    "description": "Title label of bottom form"
+  },
+  "titleLabelEmptyError": "Please enter title",
+  "@titleLabelEmptyError": {
+    "description": "Error message when title form field is empty"
+  },
+  "descriptionLabel": "Description",
+  "@descriptionLabel": {
+    "description": "Label for the description input field"
+  },
+  "descriptionEmptyError": "Please enter description",
+  "@descriptionEmptyError": {
+    "description": "Error message when description field is empty"
+  },
+  "priorityLabel": "Priority",
+  "@priorityLabel": {
+    "description": "Label for the priority dropdown"
+  },
+  "priorityEmptyError": "Please select a priority",
+  "@priorityEmptyError": {
+    "description": "Error message when priority is not selected"
+  },
+  "saveButton": "Save",
+  "@saveButton": {
+    "description": "Text for the save button"
+  },
+  "toastsTaskUpdated": "Task has been updated",
+  "@toastsTaskUpdated": {
+    "description": "Toast message shown when a task is updated"
+  },
+  "toastsTaskDeleted": "Task has been deleted",
+  "@toastsTaskDeleted": {
+    "description": "Toast message shown when a task is deleted"
+  },
+  "toastsTaskCreated": "Task has been created",
+  "@toastsTaskCreated": {
+    "description": "Toast message shown when a task is created"
+  },
+  "toastsWelcomeMessage": "Welcome to Clean Tasks!",
+  "@toastsWelcomeMessage": {
+    "description": "Default welcome message displayed on the main screen"
+  }
+}
